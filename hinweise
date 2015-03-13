@@ -1,0 +1,306 @@
+[size=20][b]Literaturverzeichnisse mit LaTeX[/b][/size]
+
+[i]Für die Erstellung eines Literaturverzeichnisses mit LaTeX ist
+das 
+moderne Paket [url=www.ctan.org/pkg/biblatex]biblatex[/url] in
+Verbindung mit dem 
+Bibliographieprozessor [url=www.ctan.org/pkg/biber]biber[/url]
+sehr empfehlenswert.  Pakete wie 
+natbib oder cite in Verbindung mit BibTeX gelten mittlerweile als
+veraltet.[/i]
+
+
+Biblatex und biber sind ein großartiges Team. Biblatex selbst
+bietet eine Auswahl 
+vordefinierter Stile, diese
+[url=http://texwelt.de/blog/modifizieren-eines-biblatex-stils/]können
+leicht geändert werden[/url].  Die
+[url=http://www.ctan.org/topic/biblatex]biblatex-Support-Seite[/url] 
+auf [url=http://www.ctan.org]CTAN[/url] liefert zusätzlich eine
+Vielzahl bereitgestellter Stile. Für erfahrene LaTeX-Kenner 
+und Benutzer der grafischen Schnittfläche LyX gibt es auch gute
+Nachrichten, 
+denn
+[url=http://texwelt.de/wissen/fragen/2768/biblatex-und-biber-mit-lyx/2847]LyX
+und biblatex vertragen sich[/url].
+
+[size=18]Erste Schritte mit biblatex[/size]
+
+Grundlage ist eine Datenbank mit allen Informationen. Dies ist
+eine (Text-)Datei mit der 
+Endung [color=darkgreen]bib[/color]. Das plattformunabhängige
+[url=http://jabref.sourceforge.net/]JabRef[/url] eignet sich gut
+für 
+die Verwaltung dieser Datenbank. Auch
+[url=http://citavi.de/de/index.html]citavi[/url] kann eine
+[color=darkgreen]bib[/color]-Datei exportieren. 
+Letztlich ist diese bib-Datei aber mit jedem simplen Texteditor
+veränderbar. 
+
+Jeder Eintrag besteht aus einem [i]Key[/i] mit welchem die
+Referenz angesprochen wird. 
+Dieser sollte möglichst nur aus Buchstaben des lateinischen
+Basisalphabets 
+bestehen. Alle anderen Informationen werden in Form von 
+Schlüssel-Wert-Paaren angegeben. Im folgenden Codeblock kann man
+sehen, 
+wie Autoren (bzw. Übersetzer) getrennt werden; durch das 
+kleine Wörtchen [i]and[/i]. Kommas hingegen trennen Namensteile
+ab. 
+
+Oftmals kann man sich Schreibarbeit ersparen, denn Anbieter
+elektronischer Medien 
+stellen meist einen  BibTeX-Eintrag zur Verfügung (ob das
+allerdings alles 
+stimmt ist eine andere Frage).
+
+
+[code]
+%MeineLiteratur.bib
+@book{aristotle:physics,
+  author       = {Aristotle},
+  title        = {Physics},
+  date         = 1929,
+  translator   = {Wicksteed, P. H. and Cornford, F. M.},
+  publisher    = {G. P. Putnam},
+  shorttitle   = {Physics},
+}
+
+@book{wilde,
+  author       = {Wilde, Oscar},
+  title        = {The Importance of Being Earnest: A Trivial
+Comedy for Serious People},
+  year         = 1899,
+  series       = {English and American drama of the Nineteenth
+Century},
+  publisher    = {Leonard Smithers and Company},
+}
+[/code]
+
+Wir laden das Paket biblatex und geben Auskunft über die
+bib-Datei. Ein Eintrag wird mit dem Befehl cite zitiert, Argument
+ist 
+der bib-Key (auch eine durch Kommata getrennte Liste von Bib-Keys
+ist möglich).
+
+[code]\documentclass{article}
+\usepackage{biblatex}
+\addbibresource{MeineLiteratur.bib}
+\begin{document}
+
+\parencite{aristotle:physics}
+\cite{wilde}
+\printbibliography
+\end{document} 
+[/code]
+
+
+
+Nach dem ersten Lauf von LaTeX erscheint in der .log-Datei
+([url=http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese]Was
+sind Hilfsdateien?[/url]) folgendes: [code]
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Minimalbeispiel 
+(biblatex)                and rerun LaTeX afterwards. [/code]
+
+Biblatex verwendet für die Sortierung der Referenzen das moderne
+Hilfsprogramm biber. Dieses wird 
+parallel zu biblatex entwickelt, deshalb sollten beide auf dem
+neuesten Stand sein. 
+Dies geht ganz leicht mit dem Paketmanager der jeweiligen
+Distribution (tlmgr oder MikTeX Package manager).
+Biber ist von LaTeX unabhängig und muss extra aufgerufen werden;
+unter MikTeX 64-bit 
+sogar extra installiert werden. Genaue Informationen finden sich
+unter »[url=www.texwelt.de/wissen/fragen/1909]Wie rufe ich biber
+in meinem Editor auf?[/url]«.
+
+
+Möchte man in einer
+[url=http://texwelt.de/wissen/fragen/3461/wie-kompiliere-ich-in-der-eingabeaufforderung-im-terminal]Eingabeaufforderung/Terminal[/url]
+arbeiten, so lautet der Befehl 
+[t]biber hauptdokumentNameOhneDateiendung[/t]. 
+Biber sortiert nun und schreibt anschließend einige Dateien. Das
+sind zum einen 
+eine Protokolldatei ([color=darkgreen]blg[/color]), welche für
+eine eventuelle Fehlersuche wichtig ist 
+(»[url=www.texwelt.de/wissen/fragen/2308]Wie überprüfe ich, ob
+biber aufgerufen wurde?[/url]«) und die Datei, welche beim 
+erneuten Aufruf von [t]latex[/t] verarbeitet wird um die
+tatsächliche Bibliographie und alle Referenzen zu setzen. 
+
+Aus dem letzten Satz können wir schlussfolgern, dass wir LaTeX
+erneut aufrufen müssen. Ergebnis
+ unserer Mühen ist eine numerische Zitation (Zahl in eckigen
+Klammern) und ein sauberes Literaturverzeichnis.
+
+Natürlich können wir auch andere Stile vorgeben, beispielsweise
+[t]authoryear[/t]. Biblatex bietet einige 
+vordefinierte Stile, viele weitere werden durch
+[url=www.ctan.org/topic/biblatex]Zusatzpakete[/url] zur Verfügung
+gestellt. 
+
+
+[size=18]Troubleshooting[/size]
+
+Läuft biber zum ersten mal, erhält man eventuell eine Meldung
+wie: [code][150] Utils.pm:167> WARN - Warning: Found biblatex
+control file version 2.5, expected version 2.3 [/code] Das
+bedeutet schlicht, dass die Versionen von biber und biblatex
+nicht zusammen passen. 
+Ein Update hilft hier schnell weiter.
+
+Auch
+[url=http://texwelt.de/wissen/fragen/3272/biber-data-source-not-found]Biber
+»data source not found«[/url] kommt ab und zu vor. 
+
+Weitere Beispiele für häufige Fehler beim erstmaligen Laufen von
+Biber erklärt Markus Kohm auf
+[url=http://komascript.de/biber]KOMA-Script[/url].
+
+
+Möchte man bei allgemeinen Problemen in einem Forum nach Hilfe
+fragen, so sollte man 
+ein [url=www.texwelt.de/wissen/fragen/569]vollständiges
+Minimalbeispiel[/url] erstellen. Auch LyX-Nutzer können ihr
+Dokument 
+minimalisieren
+([url=http://wiki.lyx.org/FAQ/MinimalExample]LyX-Minimalbeispiel[/url]),
+sollten ihr Dokument dann aber noch
+[url=http://texwelt.de/wissen/fragen/12017/wie-exportiere-ich-lyx-dokumente-zu-latex]zu
+LaTeX exportieren[/url]. 
+
+Gerade für die Erstellung von Minimalbeispielen
+stellt [t]biblatex[/t] eine Beispielbibliographie
+(biblatex-examples.bib) bereit. 
+Diese wird von LaTeX gefunden, Beispiele können so minimal
+gehalten werden. 
+Weiterer Vorteil, hier im Forum kann man das Beispiel durch 
+»Öffne in Online-Editor« sofort testen. Sehr praktisch, wenn man
+Helfern so Arbeit ersparen kann. 
+
+[code]
+\documentclass{article}
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\addbibresource{biblatex-examples.bib}
+\begin{document}
+Zitiere Onlinequelle: \cite{ctan,markey}\par
+Zitiere Buch: \parencite{companion}\par
+Zitiere Artikel: \cite{springer}
+\printbibliography[heading=bibintoc]
+\end{document}[/code]
+
+Möchte man aus bestimmten Gründen nicht die Beispielbibliographie
+nutzen, 
+lohnt sich die Verwendung der [t]filecontents[/t]-Umgebung. Somit
+ist alles 
+in einer einzigen Datei, Helfern wird das Helfen erleichtert.
+Natürlich klappt dann auch das »Öffne in Online-Editor«-Feature
+sofort :-)
+
+
+[i]Ein ganz wichtiger Punkt ist hier, das Minimalbeispiel selbst
+in einem extra Ordner mit einem eindeutigen Namen (beispielsweise
+[t]kurtGolatexBibTest.tex[/t] zu testen.[/i] 
+[t]\jobname[/t] ist ein internes Makro und ist der Name des
+Hauptdatei (ohne Dateiendung), entsprechend wird beim ersten
+pdflatex-Aufruf eine bib-Datei des Namens
+[t]kurtGolatexBibTest.bib[/t] geschrieben. [i]Das Nutzen des
+Pakets filecontents wird nicht empfohlen.[/i]
+[code]%jobname NICHT ersetzen
+\begin{filecontents}{\jobname.bib}
+@online{zeilenumbruchBibliographielinks,
+	author = {TeXwelt},
+	title  = {Zeilenumbrüche in Bibliografielinks},
+	url    = {http://texwelt.de/wissen/fragen/7008/},
+	urldate = {2014-07-01}
+}
+@online{bibliographieUnterteilen,
+	author = {TeXwelt},
+	title  = {Wie unterteile ich meine biblatex
+Bibliografie?},
+	url    = {http://texwelt.de/wissen/fragen/7532/},
+	urldate = {2014-07-23}
+}
+
+\end{filecontents}
+
+\documentclass[bibliography=totoc]{scrartcl}
+\usepackage{selinput}
+\SelectInputMappings{
+	udieresis={ü}
+}
+\usepackage[ngerman]{babel}
+\usepackage[backend=biber,
+style=numeric,
+]{biblatex}
+\addbibresource{\jobname.bib}%jobname NICHT ersetzen
+\begin{document}
+\tableofcontents
+
+\section{Zusatzinfos}
+\citetitle{bibliographieUnterteilen}
+
+Wie kann ich Links besser
+trennen?\footcite{zeilenumbruchBibliographielinks}
+\printbibliography
+\end{document} 
+[/code]
+
+
+[i]Ein ganz wichtiger Punkt ist hier, das Minimalbeispiel selbst
+in einem extra Ordner mit einem eindeutigen Namen (beispielsweise
+[t]kurtGolatexBibTest.tex[/t] zu testen.[/i] 
+[t]\jobname[/t] ist ein internes Makro und ist der Name des
+Hauptdatei (ohne Dateiendung), entsprechend wird beim ersten
+pdflatex-Aufruf eine bib-Datei des Namens
+[t]kurtGolatexBibTest.bib[/t] geschrieben. 
+
+
+[size=18]Anpassen des Stils an vorhandene Vorgaben[/size]
+
+Viele Institute und Einrichtungen stellen sehr genaue
+Anforderungen an das optische Erscheinungsbild 
+der Zitationen im Text und des Literaturverzeichnisses. Bei
+Kenntnis der biblatex-Dokumentation
+ist das Anpassen zwar relativ simpel, aber zeitaufwändig. Graue
+Haare kann man sich meist ersparen, indem man 
+einen Stil sucht, der den Anforderungen am nächsten kommt und
+einfach mal nett nachfragt, ob das reicht. 
+
+Ist die strikte Umsetzung gefordert kann man das Erscheinungsbild
+über LaTeX-Makros ändern. 
+Erste Schritte und Tipps werden einem unter
+[url=http://texwelt.de/blog/modifizieren-eines-biblatex-stils/]Modifizieren
+eines biblatex-Stils[/url] auf den Weg gegeben. Bei 
+Fragen zur Modifikation erhöht ein möglichst genaues
+Minimalbeispiel die Chancen auf eine präzise Antwort.
+Die von [t]biblatex[/t] bereitsgestellte Beispielbibliographie,
+sowie das Paket [p]citeall[/p] liefern hier gute Dienste. 
+
+[size=16]Anpassen von BibTeX-Stilen[/size]
+
+Das ältere BibTeX arbeitet mit bst-Dateien. In diesen wird das
+Erscheinungsbild über Funktionen definiert. 
+Viele empfinden diese Dateien und die Funktionen als kryptisch.
+Sie stellen eine eigene Sprache 
+dar. Bei allgemeinen Fragen ist wieder die Bereitstellung eines
+[url=http://www.texwelt.de/wissen/fragen/569/was-ist-ein-vollstandiges-minimalbeispiel-oder-kurz-vm-und-wie-erstelle-ich-dieses]Minimalbeispieles[/url]
+wichtig. 
+Soll das optische Erscheinungsbild geändert werden, kann das
+Programm makebst genutzt werden. 
+Allerdings sollte ein Wechsel zu biblatex in Erwägung gezogen
+werden.
+
+
+------------------------ 
+Dieser Beitrag enthält Links welche grundlegender Bestandteil des
+Beitrages sind. 
+Wünsche, Kritik oder Verbesserungsvorschläge werden im
+[url=http://www.golatex.de/viewtopic,p,63146.html#63146]Support-Thread[/url]
+gern gesehen. 
+
+
+
+Viel Erfolg 
+Johannes im Namen der GoLaTeX-Helfer
