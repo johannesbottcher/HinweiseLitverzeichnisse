@@ -83,13 +83,13 @@ Informationen. Im Bereich LaTeX üblich sind Datenbanken im
 BibTeX-Format, reine (Text-)Dateien mit der
 Endung *bib*. Jeder Eintrag hat folgende Form:
 
-`@Eintragstyp{Keyword,`  
-`<feld name> = "<Text>",`  
-`  .`  
-`  .`  
-`  .`  
-`<feld name> = "<text>",`  
-`}`  
+    @Eintragstyp{Keyword,  
+    <feld name> = "<Text>",  
+      .  
+      .  
+      .  
+    <feld name> = "<text>",  
+    }  
 
 Ein Eintrag besteht aus einem *Keyword* (Bib-Key,
 *Schlüsselwort*) mit welchem die Referenz auch im Dokument
@@ -164,9 +164,9 @@ wird wie gewohnt mit dem Befehl `cite` zitiert, Argument ist der Bib-Key (auch e
 %Bild einfügen hinweise1.png
 
 Nach dem ersten Lauf von LaTeX erhalten wir nicht ganz das gewünschte Ergebnis und folgende Meldung in der .log-Datei:
-`Package biblatex Warning: Please (re)run Biber on the file:`  
-`(biblatex)        Minimalbeispiel `  
-`(biblatex)        and rerun LaTeX afterwards. `  
+    Package biblatex Warning: Please (re)run Biber on the file:  
+    (biblatex)        Minimalbeispiel   
+    (biblatex)        and rerun LaTeX afterwards.   
 
 [Was sind Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese)
 
@@ -204,7 +204,8 @@ zur Verfügung gestellt.
 Troubleshooting
 --------------
 
-Läuft biber zum ersten mal, erhält man eventuell eine Meldung wie: `[150] Utils.pm:167> WARN - Warning: Found biblatex control file version 2.5,
+Läuft biber zum ersten mal, erhält man eventuell eine Meldung wie:  
+`[150] Utils.pm:167> WARN - Warning: Found biblatex control file version 2.5,
 expected version 2.3 ` Das bedeutet schlicht, dass die Versionen von biber und biblatex nicht zusammen passen. Ein Update hilft hier schnell
 weiter.
 
@@ -337,4 +338,4 @@ Johannes im Namen der GoLaTeX-Helfer
 
 
 
-[l2kurz] : http://ctan.org/pkg/lshort-german
+[l2kurz]: http://ctan.org/pkg/lshort-german
