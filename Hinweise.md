@@ -66,7 +66,7 @@ Literatur ist also  lohnenswert.
 Es ist durchaus möglich das Literaturverzeichnis von Hand zu
 erstellen, schließlich ist ein Literaturverzeichnis nur eine
 Liste. Genaueres findet sich in der
-![LaTeX2ε-Kurzbeschreibung][1], in
+[LaTeX2ε-Kurzbeschreibung][l2kurz], in
 	Kapitel 5.6 von Nicola Talbots [LaTeX for Complete
 Novices](http://www.dickimaw-books.com/latex/novices/index.html)
 oder auch in Kapitel 7 des
@@ -337,4 +337,4 @@ Johannes im Namen der GoLaTeX-Helfer
 
 
 
-[1] : http://ctan.org/pkg/lshort-german
+[l2kurz] : http://ctan.org/pkg/lshort-german
