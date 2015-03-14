@@ -61,7 +61,7 @@ investiert, hat später weniger Ärger. Ein Blick in die genannte
 Literatur ist also  lohnenswert.
 
 
-### DIY -- Do it yourself
+### DIY - Do it yourself
 
 Es ist zwar möglich das Literaturverzeichnis von Hand zu
 erstellen, schließlich ist ein Literaturverzeichnis nur eine
@@ -74,7 +74,7 @@ oder auch in Kapitel 7 des
 von Stefan Kottwitz. Bei sehr kurzen Verzeichnissen kann dieser
 manuelle Ansatz noch vertretbar sein.
 
-### Datenbanken -- Infos auf der hohen Kante
+### Datenbanken - Infos auf der hohen Kante
 
 Egal ob man sich für die Moderne entscheidet, oder verstaubtes
 Handwerk auferstehen lässt, Grundlage effizienten Arbeitens ist
@@ -93,11 +93,13 @@ Endung *bib*. Jeder Eintrag hat folgende Form:
 
 Ein Eintrag besteht aus einem *Keyword* (Bib-Key,
 *Schlüsselwort*) mit welchem die Referenz auch im Dokument
-angesprochen wird. Dieses Schlüsselwort sollte möglichst nur aus Buchstaben des
-lateinischen Basisalphabets und Zahlen bestehen. Informationen werden an die
+angesprochen wird. Dieses Schlüsselwort sollte möglichst nur aus
+Buchstaben des lateinischen Basisalphabets und Zahlen bestehen.
+Satzzeichen wie Bindestriche und/oder Doppelpunkte sollten
+sparsam eingesetzt werden. Informationen werden an die
 jeweiligen Felder übergeben. Je nach Eintragstyp (`book`,
-`online` etc.) können verschiedene Felder gefordert werden. Eigene
-Felder können beliebig hinzugefügt werden.
+`online` etc.) können verschiedene Felder gefordert werden.
+Eigene Felder können beliebig hinzugefügt werden.
 
 Namen werden in BibTeX-Datenbanken durch das englische Wort *and*
 getrennt, Namensteile hingegen werden durch Kommas abgetrennt.
@@ -136,7 +138,7 @@ kann daher zu Komplikationen kommen.
 
 Oftmals kann man sich Schreibarbeit ersparen, denn Anbieter
 elektronischer Medien stellen häufig einen BibTeX-Eintrag zur
-Verfügung (ob dieser allerdings stimmt ist eine andere Frage).
+Verfügung (ob dieser allerdings korrekt ist, ist eine andere Frage).
 
 Grundlegende Informationen zu BibTeX-Datenbanken und möglichen
 Stolperfallen bei der Eingabe bieten [Bibliografien mit
@@ -199,22 +201,38 @@ tatsächliche Bibliographie und alle Referenzen zu setzen.
 
 Aus dem letzten Satz können wir schlussfolgern, dass wir LaTeX
 erneut aufrufen müssen. Ergebnis unserer Mühen ist eine
-numerische Zitation (Zahl in eckigen Klammern) und ein sauberes
+numerische Zitation der Einträge (Zahl in eckigen Klammern) und ein sauberes
 Literaturverzeichnis.
 
 
 Natürlich können wir auch andere Stile vorgeben, beispielsweise
-`authoryear` über Optionen beim Laden des Paketes. Biblatex
+`style=authoryear` über Optionen beim Laden des Paketes. Biblatex
 bietet einige vordefinierte Stile, viele weitere werden durch
 [Zusatzpakete](www.ctan.org/topic/biblatex) zur Verfügung
 gestellt. 
+
+Das Paket biblatex bietet eine Auswahl verschiedener
+Zitierbefehle, verwendet man grundsätzlich `autocite`, kann man
+sich global für eine gültige Zitationsweise entscheiden.  
+Auch Befehle wie `\citeyear` oder `\citetitle` sind für viele
+Nutzer ein großer Komfort. 
+
+Nicht zu vergessen bleibt das optionale Argument, mit welchem wir
+Beispielsweise eine Seitenzahl angeben können. Ausführlicher wird
+dies in der bereits erwähnten Literatur beschrieben.
+
 
 
 Troubleshooting
 --------------
 
+
+Viele Nutzer stoßen beim Umstieg auf biblatex mit biber auf das
+eiin oder andere Problem. Im Allgemeinen sind diese schnell zu
+lösen.  
 Läuft biber zum ersten mal, erhält man eventuell eine Meldung
-wie:  `[150] Utils.pm:167> WARN - Warning: Found biblatex control
+wie:  
+`[150] Utils.pm:167> WARN - Warning: Found biblatex control
 file version 2.5, expected version 2.3 ` Das bedeutet schlicht,
 dass die Versionen von biber und biblatex nicht zusammen passen.
 Ein Update mit dem Paketmanager der installierten
@@ -228,6 +246,7 @@ Weitere Beispiele für häufige Fehler beim erstmaligen Laufen von
 Biber erklärt Markus Kohm auf
 [KOMA-Script.de](http://komascript.de/biber).
 
+----
 
 Möchte man bei allgemeinen Problemen in einem Forum nach Hilfe
 fragen, so sollte man grundsätzlich ein [vollständiges
@@ -268,7 +287,8 @@ Online-Editor«-Feature sofort :-)
 
 *Ein ganz wichtiger Punkt ist hier, das Minimalbeispiel selbst in
 einem extra Ordner mit einem eindeutigen Namen (beispielsweise
-`kurtGolatexBibTest.tex` zu testen.* `\jobname` ist ein internes
+mit Benutzernamen:
+`kurtGolatexBibTest.tex`) zu testen.* `\jobname` ist ein internes
 Makro und ist der Name der Hauptdatei (ohne Dateiendung),
 entsprechend wird beim ersten latex-Aufruf eine bib-Datei des
 Namens `kurtGolatexBibTest.bib` geschrieben. *Das Nutzen des
@@ -315,10 +335,12 @@ Pakets `filecontents` wird nicht empfohlen!*
 
 *Ein ganz wichtiger Punkt ist hier, das Minimalbeispiel selbst in
 einem extra Ordner mit einem eindeutigen Namen (beispielsweise
-`kurtGolatexBibTest.tex` zu testen.* `\jobname` ist ein internes
-Makro und ist der Name des Hauptdatei (ohne Dateiendung),
-entsprechend wird beim ersten latex-Aufruf eine bib-Datei des
-Namens `kurtGolatexBibTest.bib` geschrieben. 
+mit Benutzernamen: `kurtGolatexBibTest.tex`) zu testen.*
+`\jobname` ist ein internes Makro und ist der Name des Hauptdatei
+(ohne Dateiendung), entsprechend wird beim ersten latex-Aufruf
+eine bib-Datei des Namens `kurtGolatexBibTest.bib` geschrieben. *Das Nutzen des
+Pakets `filecontents` wird nicht empfohlen!*
+
 
 
 Anpassen des Stils an vorhandene Vorgaben
@@ -328,7 +350,7 @@ Viele Institute und Einrichtungen stellen sehr genaue
 Anforderungen an das optische Erscheinungsbild der Zitationen im
 Text und des Literaturverzeichnisses. Bei Kenntnis der
 biblatex-Dokumentation ist das Anpassen zwar relativ simpel, aber
-zeitaufwändig. Graue Haare kann man sich meist ersparen, indem
+trotzdem sehr zeitaufwändig. Graue Haare kann man sich meist ersparen, indem
 man einen Stil sucht, der den Anforderungen am nächsten kommt und
 einfach mal nett nachfragt, ob das reicht. 
 
@@ -338,10 +360,11 @@ unter [Modifizieren eines
 biblatex-Stils](http://texwelt.de/blog/modifizieren-eines-biblatex-stils/)
 auf den Weg gegeben. Bei Fragen zur Modifikation erhöht ein
 möglichst genaues Minimalbeispiel die Chancen auf eine präzise
-Antwort. Dabei ist es besonders vorteilhaft, die Details in
-Einzelfragen mit jeweils kleinen Beispielen unterzubringen. Die
-von `biblatex` bereitgestellte Beispielbibliographie, sowie das
-Paket `citeall` liefern hier gute Dienste. 
+Antwort, ist aber leider kein Garant. Dabei ist es besonders
+vorteilhaft, die Details in Einzelfragen mit jeweils kleinen
+Beispielen unterzubringen. Die von `biblatex` bereitgestellte
+Beispielbibliographie, sowie das Paket `citeall` liefern hier
+gute Dienste. 
 
 ## Anpassen von BibTeX-Stilen
 
@@ -369,13 +392,13 @@ Viel Erfolg
 Johannes im Namen der GoLaTeX-Helfer
 
 
-2015-03-13
+2015-03-14
 
 
 
 [l2kurz]: http://ctan.org/pkg/lshort-german
 [novice]: http://www.dickimaw-books.com/latex/novices/index.html
 [stefan]: https://www.packtpub.com/hardware-and-creative/latex-beginners-guide
-[herbert]:
+[herbert]: http://www.lehmanns.de/shop/mathematik-informatik/18416992-9783865414151-bibliografien-mit-latex
 [jabref]: http://jabref.sourceforge.net/
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
