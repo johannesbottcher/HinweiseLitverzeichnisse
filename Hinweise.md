@@ -131,8 +131,8 @@ Verwirrung vorzubeugen. Anbei ein kleines Beispiel.
 Das plattformunabhängige [JabRef][jabref]
 eignet sich gut für die Verwaltung von Literaturdatenbanken.
 Beispiele zur Anwendung  finden sich bei [Talbot][thesis] und
-[Voß][herbert]
-[citavi](http://citavi.de/de/index.html) kann bib-Dateien
+[Voß][herbert].
+[Citavi](http://citavi.de/de/index.html) kann bib-Dateien
 exportieren, arbeitet aber intern mit einem anderen Format, es
 kann daher zu Komplikationen kommen.
 
