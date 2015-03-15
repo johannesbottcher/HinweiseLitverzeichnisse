@@ -10,7 +10,7 @@ des Verzeichnisses, gelten als veraltet.*
 
 
 
-Der Schnelle Umstieg für erfahrene Benutzer
+Der schnelle Umstieg für erfahrene Benutzer
 -----------------
 
 Biblatex und biber sind ein großartiges Team. Biblatex bietet eine
@@ -27,16 +27,23 @@ gibt es auch gute Nachrichten, denn [LyX und biblatex vertragen
 sich](http://texwelt.de/wissen/fragen/2768/biblatex-und-biber-mit-lyx/2847).
 
 
-Die Paketdokumentation von `biblatex` listet die Pakete die nun nicht
-mehr gebraucht werden, da biblatex selbst diese Fähigkeiten besitzt.
-Da `biblatex` mit LaTeX-Dateien zur Stilbeschreibung arbeitet, ist der
-Befehl `\bibliographystyle` nicht mehr nötig. Stattdessen wird der
-Bibliographiestil als Paketoption übergeben (`style=authoryear`).
-Bereits existierende BibTeX-Datenbanken sind kompatibel, können aber
-um weitere Eintragstypen und -Felder erweitert werden. Ein höheres
-Maß an Flexibilität ist so möglich. Der Name der Datenbank wird mit
-dem Befehl `\addbibresource` übergeben, da verschiedene Formate gültig
-sind, ist die Angabe der Dateiendung nötig. 
+`biblatex` selbst bietet viele Möglichkeiten und ersetzt eine
+Reihe von Paketen welche im Zusammenhang mit dem klassischen
+BibTeX gebraucht wurden.  Da `biblatex` mit LaTeX-Dateien zur
+Stilbeschreibung arbeitet, ist der Befehl `\bibliographystyle`
+nicht mehr nötig. Stattdessen wird der Bibliographiestil als
+Paketoption übergeben (`style=authoryear`).  Bereits existierende
+BibTeX-Datenbanken sind kompatibel, können aber um weitere
+Eintragstypen und -felder erweitert werden. Ein höheres Maß an
+Flexibilität ist so möglich. Der Name der Datenbank wird mit dem
+Befehl `\addbibresource` übergeben. Da verschiedene Formate
+gültig sind, ist die Angabe der Dateiendung nötig. 
+
+Wie gewohnt wird mit dem Befehl `\cite{bib-key}` zitiert,
+`biblatex` bietet aber auch Alternativen. Mit `autocite` kann
+global das Erscheinungsbild der Zitationen im Text geändert
+werden. Auch Befehle wie `citetitle`, `citeyear` und ähnliche
+sind sehr nützlich. 
 
 Im Dokument wird das Literaturverzeichnis mit `\printbibliography`
 ausgegeben. Der Befehl kennt optionale Argumente, beispielsweise um
@@ -65,13 +72,14 @@ Literatur ist also  lohnenswert.
 
 Es ist zwar möglich das Literaturverzeichnis von Hand zu
 erstellen, schließlich ist ein Literaturverzeichnis nur eine
-Liste, aber wer will das schon. Genaueres findet sich in der
+Liste, aber wer will das schon. Genaueres findet sich bei
+Interesse in der
 [LaTeX2ε-Kurzbeschreibung][l2kurz], in
 	Kapitel 5.6 von Nicola Talbots [LaTeX for Complete
 Novices][novice]
 oder auch in Kapitel 7 des
 [LaTeX Beginner's Guide][stefan]
-von Stefan Kottwitz. Bei sehr kurzen Verzeichnissen kann dieser
+von Stefan Kottwitz. Bei sehr kurzen Verzeichnissen kann der
 manuelle Ansatz noch vertretbar sein.
 
 ### Datenbanken - Infos auf der hohen Kante
@@ -95,10 +103,10 @@ Ein Eintrag besteht aus einem *Keyword* (Bib-Key,
 *Schlüsselwort*) mit welchem die Referenz auch im Dokument
 angesprochen wird. Dieses Schlüsselwort sollte möglichst nur aus
 Buchstaben des lateinischen Basisalphabets und Zahlen bestehen.
-Satzzeichen wie Bindestriche und/oder Doppelpunkte sollten
+Satzzeichen wie Bindestriche und/oder Doppelpunkte können jedoch
 sparsam eingesetzt werden. Informationen werden an die
 jeweiligen Felder übergeben. Je nach Eintragstyp (`book`,
-`online` etc.) können verschiedene Felder gefordert werden.
+`online` etc.) können verschiedene Felder benötigt werden.
 Eigene Felder können beliebig hinzugefügt werden.
 
 Namen werden in BibTeX-Datenbanken durch das englische Wort *and*
@@ -128,7 +136,7 @@ Verwirrung vorzubeugen. Anbei ein kleines Beispiel.
 
 ### Datenbanken verwalten
 
-Das plattformunabhängige [JabRef][jabref]
+Das plattformunabhängige und kostenfreie [JabRef][jabref]
 eignet sich gut für die Verwaltung von Literaturdatenbanken.
 Beispiele zur Anwendung  finden sich bei [Talbot][thesis] und
 [Voß][herbert].
@@ -148,12 +156,12 @@ von Nicola Talbot.
 
 ### Erste Schritte mit biblatex
 
-In einem Minimalbeispiel laden wir das Paket `biblatex` und geben
-mit `\addbibresource` Auskunft über den Namen der bib-Datei. Ein
-Eintrag der Datenbank wird mit dem Befehl `\cite` zitiert, Argument
-ist der Bib-Key (auch eine durch Kommata getrennte Liste von
-Bib-Keys ist möglich). Das Literaturverzeichnis wird durch
-`\printbibliography` ausgegeben.
+Im folgenden Minimalbeispiel laden wir das Paket `biblatex` und
+geben mit `\addbibresource` Auskunft über den Namen der
+bib-Datei. Ein Eintrag der Datenbank wird mit dem Befehl `\cite`
+zitiert, Argument ist der Bib-Key (auch eine durch Kommata
+getrennte Liste von Bib-Keys ist möglich). Das
+Literaturverzeichnis wird durch `\printbibliography` ausgegeben.
 
     \documentclass{article}
     \usepackage{biblatex}
@@ -177,58 +185,67 @@ Die `log`-Datei ist die Protokolldatei des LaTeX Laufs. ([Was
 sind
 Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese))
 
-Biblatex verwendet für die Sortierung der Referenzen das moderne
-Hilfsprogramm `biber`. Dieses wird parallel zu biblatex
-entwickelt, deshalb sollten beide auf dem neuesten Stand sein.
-Dies geht ganz leicht mit dem Paketmanager der jeweiligen
-Distribution (tlmgr oder MikTeX Package manager). Biber ist als
-Hilfsprogramm von LaTeX unabhängig und muss extra aufgerufen
-werden; unter MikTeX 64-Bit sogar extra installiert werden.
-Genaue Informationen finden sich unter »[Wie rufe ich biber in
-meinem Editor auf?](www.texwelt.de/wissen/fragen/1909)«.
-
-
-Möchte man in einer
+Biber ist der Name des Hilfsprogramms, welches von `biblatex` für
+die Sortierung der Referenzen genutzt wird.  Biber wird parallel
+zu biblatex entwickelt, deshalb sollten beide auf dem neuesten
+Stand sein.  Dies geht ganz leicht mit dem Paketmanager der
+jeweiligen Distribution (tlmgr oder MikTeX Package manager).
+Biber ist als Hilfsprogramm von LaTeX unabhängig und muss extra
+aufgerufen werden; unter MikTeX 64-Bit sogar extra installiert
+werden.  Beispiele zum Aufruf  für  verschiede Editoren finden sich unter »[Wie rufe ich
+biber in meinem Editor auf?](www.texwelt.de/wissen/fragen/1909)«.
+Möchte man stattdessen in einer
 [Eingabeaufforderung/Terminal](http://texwelt.de/wissen/fragen/3461/wie-kompiliere-ich-in-der-eingabeaufforderung-im-terminal)
 arbeiten, so lautet der Befehl `biber
-hauptdokumentNameOhneDateiendung`. Biber sortiert nun und
+hauptdokumentNameOhneDateiendung`. 
+
+Biber sortiert nun und
 schreibt anschließend einige Dateien. Das sind zum einen eine
 Protokolldatei (`blg`), welche für eine eventuelle Fehlersuche
 wichtig ist (»[Wie überprüfe ich, ob biber aufgerufen
 wurde?](www.texwelt.de/wissen/fragen/2308)«) und die Datei,
 welche beim erneuten Aufruf von `latex` verarbeitet wird um die
-tatsächliche Bibliographie und alle Referenzen zu setzen. 
+tatsächliche sortierte  Bibliographie und alle Referenzen zu setzen. 
 
 Aus dem letzten Satz können wir schlussfolgern, dass wir LaTeX
-erneut aufrufen müssen. Ergebnis unserer Mühen ist eine
+erneut aufrufen müssen. Ergebnis unserer *Mühen* ist eine
 numerische Zitation der Einträge (Zahl in eckigen Klammern) und ein sauberes
 Literaturverzeichnis.
 
 
-Natürlich können wir auch andere Stile vorgeben, beispielsweise
-`style=authoryear` über Optionen beim Laden des Paketes. Biblatex
-bietet einige vordefinierte Stile, viele weitere werden durch
+Bereits im Vorspann wurde erwahnt, dass biblatex verschiedene
+Stile definiert. So kann man beim Laden des Paketes mit   
+`\usepackage[style=authoryear]{biblatex}`  
+die in den Geisteswissenschaften sehr übliche Zitation des Stils
+Autor-Jahr wählen.  Natürlich können wir auch andere Stile
+vorgeben, beispielsweise `style=authoryear` über Optionen beim
+Laden des Paketes. Biblatex Weitere Stile, teilweise spezielle
+Anpassungen an Verlagsvorlagen, werden durch
 [Zusatzpakete](www.ctan.org/topic/biblatex) zur Verfügung
 gestellt. 
 
-Das Paket biblatex bietet eine Auswahl verschiedener
+Das Paket `biblatex` bietet eine Auswahl verschiedener
 Zitierbefehle, verwendet man grundsätzlich `autocite`, kann man
 sich global für eine gültige Zitationsweise entscheiden.  
 Auch Befehle wie `\citeyear` oder `\citetitle` sind für viele
 Nutzer ein großer Komfort. 
 
-Nicht zu vergessen bleibt das optionale Argument, mit welchem wir
-Beispielsweise eine Seitenzahl angeben können. Ausführlicher wird
-dies in der bereits erwähnten Literatur beschrieben.
+Nicht zu vergessen bleiben dew optionalen Argumente des
+`\cite`-Befehls, mit welchem wir *pre*- und *postnotes* angeben
+können.  Ausführlicher wird dies in der bereits erwähnten
+Literatur beschrieben.
 
+Die zuverlässigsten Informationen zu `biblatex` finden sich
+allerdings in der Paketdokumentation des Pakets. Auch eine nicht
+ganz aktuelle deutsche Übersetzung ist verfügbar.
 
 
 Troubleshooting
 --------------
 
 
-Viele Nutzer stoßen beim Umstieg auf biblatex mit biber auf das
-eiin oder andere Problem. Im Allgemeinen sind diese schnell zu
+Viele Nutzer stoßen beim Umstieg auf biblatex und biber auf das
+ein oder andere Problem. Im Allgemeinen sind diese schnell zu
 lösen.  
 Läuft biber zum ersten mal, erhält man eventuell eine Meldung
 wie:  
@@ -236,7 +253,7 @@ wie:
 file version 2.5, expected version 2.3 ` Das bedeutet schlicht,
 dass die Versionen von biber und biblatex nicht zusammen passen.
 Ein Update mit dem Paketmanager der installierten
-TeX-Distribution hilft hier schnell weiter.
+TeX-Distribution hilft hier weiter.
 
 Auch [Biber »data source not
 found«](http://texwelt.de/wissen/fragen/3272/biber-data-source-not-found)
@@ -388,11 +405,11 @@ Verbesserungsvorschläge werden im [Support-Thread](http://www.golatex.de/viewto
 
 
 
-Viel Erfolg 
+Viel Erfolg     
 Johannes im Namen der GoLaTeX-Helfer
 
 
-2015-03-14
+2015-03-15
 
 
 
