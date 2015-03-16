@@ -174,16 +174,19 @@ Literaturverzeichnis wird durch `\printbibliography` ausgegeben.
     \end{document} 
 
 
+
+![citekey][citekey]
+
 Nach dem ersten Lauf von LaTeX erhalten wir nicht ganz das
-gewünschte Ergebnis und folgende Meldung in der `.log`-Datei:
+gewünschte Ergebnis, unsere Bibkeys stehen hässlich und fett im
+Text. In der Log-datei ([Was sind
+Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese))
+findet sich folgende Warnung:
 
     Package biblatex Warning: Please (re)run Biber on the file:
     (biblatex)        Minimalbeispiel 
     (biblatex)        and rerun LaTeX afterwards. 
 
-Die `log`-Datei ist die Protokolldatei des LaTeX Laufs. ([Was
-sind
-Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese))
 
 Biber ist der Name des Hilfsprogramms, welches von `biblatex` für
 die Sortierung der Referenzen genutzt wird.  Biber wird parallel
@@ -212,6 +215,7 @@ erneut aufrufen müssen. Ergebnis unserer *Mühen* ist eine
 numerische Zitation der Einträge (Zahl in eckigen Klammern) und ein sauberes
 Literaturverzeichnis.
 
+![numerische Zitation][numeric]
 
 Bereits im Vorspann wurde erwahnt, dass biblatex verschiedene
 Stile definiert. So kann man beim Laden des Paketes mit   
@@ -419,3 +423,5 @@ Johannes im Namen der GoLaTeX-Helfer
 [herbert]: http://www.lehmanns.de/shop/mathematik-informatik/18416992-9783865414151-bibliografien-mit-latex
 [jabref]: http://jabref.sourceforge.net/
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
+[numeric]: http://golatex.de/files/numeric_606.png
+[citekeys]: http://golatex.de/files/hinweise1_157.png
