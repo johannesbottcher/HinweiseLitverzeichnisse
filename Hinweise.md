@@ -424,4 +424,4 @@ Johannes im Namen der GoLaTeX-Helfer
 [jabref]: http://jabref.sourceforge.net/
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
 [numeric]: http://golatex.de/files/numeric_606.png
-[citekeys]: http://golatex.de/files/hinweise1_157.png
+[citekey]: http://golatex.de/files/hinweise1_157.png
