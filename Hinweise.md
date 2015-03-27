@@ -278,7 +278,8 @@ sollten ihr Dokument dann aber noch [zu LaTeX
 exportieren](http://texwelt.de/wissen/fragen/12017/wie-exportiere-ich-lyx-dokumente-zu-latex).
 Nur mit Hilfe eines Minimalbeispiels können Helfer Probleme
 nachvollziehen. Wichtig ist weiterhin die Bereitstellung der
-erzeugten `log`- und `blg`-Dateien des Minimalbeispiels.
+erzeugten `log`- und `blg`-Dateien des Minimalbeispiels, welche
+mit Hilfe des verwendeten LaTeX-Editors geöffnet werden können. 
 
 Gerade für die Erstellung von helferfreundlichen
 Minimalbeispielen stellt `biblatex` eine Beispielbibliographie
