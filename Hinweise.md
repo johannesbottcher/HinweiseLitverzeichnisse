@@ -1,5 +1,23 @@
+Wissenschaftliches Arbeiten beinhaltet auch das belegen
+verwendeter Literatur in Form von Literaturangaben sowie
+ordentlichen Literaturverzeichnissen. Das Literaturverzeichnis
+muss laut [Schenk (Seite 92)][schenk] folgenden
+*Anforderungen* entsprechen:
+
+- Richtigkeit
+- Vollständigkeit
+- Einheitlichkeit
+- Übersichtlichkeit
+- Ehrlichkeit
+
+LaTeX als Textsatzprogramm kann hier unterstützen, jedoch trägt
+der Autor selbst für die Einhaltung der oben genannten Punkte
+Verantwortung.
+
 **Literaturverzeichnisse mit LaTeX**
 =========================
+
+
 
 *Für die Erstellung von Literaturverzeichnissen mit LaTeX ist in
 diesen Tagen das moderne Paket [biblatex](www.ctan.org/pkg/biblatex)
@@ -426,3 +444,4 @@ Johannes im Namen der GoLaTeX-Helfer
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
 [numeric]: http://golatex.de/files/numeric_606.png
 [citekey]: http://golatex.de/files/hinweise1_157.png
+[schenk]: https://portal.dnb.de/opac.htm?method=simpleSearch&cqlMode=true&query=idn%3D973206799 "Schenk, Hans-Otto, Die Examensarbeit : ein Leitfaden für Wirtschafts- und Sozialwissenschaftler, ISBN 3-8252-2657-3"
