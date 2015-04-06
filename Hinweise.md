@@ -1,7 +1,15 @@
+---
+
+Title: Literaturverzeichnisse mit LaTeX
+Keywords: LaTeX, biblatex, BibTeX, citation
+
+---
+
+
 Wissenschaftliches Arbeiten beinhaltet auch das belegen
-verwendeter Literatur in Form von Literaturangaben sowie
-ordentlichen Literaturverzeichnissen. Das Literaturverzeichnis
-muss laut [Schenk (Seite 92)][schenk] folgenden
+verwendeter Literatur in Form von Literaturangaben sowie dem Erstellen 
+ordentlicher Literaturverzeichnisse. Das Literaturverzeichnis
+muss laut [Schenk (Seite 92)][schenk2012] folgenden
 *Anforderungen* entsprechen:
 
 - Richtigkeit
@@ -28,9 +36,6 @@ des Verzeichnisses, gelten als veraltet.*
 
 
 
-Der schnelle Umstieg für erfahrene Benutzer
------------------
-
 Biblatex und biber sind ein großartiges Team. Biblatex bietet eine
 Auswahl vordefinierter Stile für Zitationen und Bibliographien, welche
 auch leicht [geändert werden
@@ -44,6 +49,9 @@ Für erfahrene LaTeX-Nutzer, welche den Umstieg auf LyX gewagt haben,
 gibt es auch gute Nachrichten, denn [LyX und biblatex vertragen
 sich](http://texwelt.de/wissen/fragen/2768/biblatex-und-biber-mit-lyx/2847).
 
+Der schnelle Umstieg für erfahrene Benutzer
+-----------------
+
 
 `biblatex` selbst bietet viele Möglichkeiten und ersetzt eine
 Reihe von Paketen welche im Zusammenhang mit dem klassischen
@@ -54,7 +62,7 @@ Paketoption übergeben (`style=authoryear`).  Bereits existierende
 BibTeX-Datenbanken sind kompatibel, können aber um weitere
 Eintragstypen und -felder erweitert werden. Ein höheres Maß an
 Flexibilität ist so möglich. Der Name der Datenbank wird mit dem
-Befehl `\addbibresource` übergeben. Da verschiedene Formate
+Befehl `\addbibresource`  inder Präambel übergeben. Da verschiedene Formate
 gültig sind, ist die Angabe der Dateiendung nötig. 
 
 Wie gewohnt wird mit dem Befehl `\cite{bib-key}` zitiert,
@@ -66,11 +74,13 @@ sind sehr nützlich.
 Im Dokument wird das Literaturverzeichnis mit `\printbibliography`
 ausgegeben. Der Befehl kennt optionale Argumente, beispielsweise um
 den Titel anzupassen oder das Verzeichnis auf bestimmte Eintragstypen
-zu beschränken. 
+zu beschränken. Der Befehl kann mehrfach benutzt werden. 
 
 Dabei ist die allgemeine Arbeitsweise mit dem älteren System
-kompatibel. Das bedeutet der Rhythmus `latex`, `biber`/`bibtex`,
-`latex`, `latex` bleibt erhalten. 
+kompatibel. Das bedeutet der Rhythmus `latex`, `biber`,
+`latex`, `latex` bleibt erhalten. Sind weitere Läufe nötig wird
+in der `log`-Datei mit dem bekannten *"Labe(s) may have changed.
+Rerun to get cross-references right"* gewarnt.
 
 -------------------------------------------------------------
 
@@ -157,7 +167,7 @@ Verwirrung vorzubeugen. Anbei ein kleines Beispiel.
 Das plattformunabhängige und kostenfreie [JabRef][jabref]
 eignet sich gut für die Verwaltung von Literaturdatenbanken.
 Beispiele zur Anwendung  finden sich bei [Talbot][thesis] und
-[Voß][herbert].
+[Voß][@herbert].
 [Citavi](http://citavi.de/de/index.html) kann bib-Dateien
 exportieren, arbeitet aber intern mit einem anderen Format, es
 kann daher zu Komplikationen kommen.
@@ -168,7 +178,7 @@ Verfügung (ob dieser allerdings korrekt ist, ist eine andere Frage).
 
 Grundlegende Informationen zu BibTeX-Datenbanken und möglichen
 Stolperfallen bei der Eingabe bieten [Bibliografien mit
-LaTeX][herbert] von Herbert Voß und [Using LaTeX to Write a PhD Thesis][thesis]
+LaTeX][@herbert] von Herbert Voß und [Using LaTeX to Write a PhD Thesis][thesis]
 von Nicola Talbot.
 
 
@@ -193,7 +203,8 @@ Literaturverzeichnis wird durch `\printbibliography` ausgegeben.
 
 
 
-![citekey][citekey]
+![Nach dem ersten Durchlauf mit pdfLaTeX sind nur die citekeys in
+fetter Schrift zu sehen][citekey]
 
 Nach dem ersten Lauf von LaTeX erhalten wir nicht ganz das
 gewünschte Ergebnis, unsere Bibkeys stehen hässlich und fett im
@@ -202,8 +213,8 @@ Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo
 findet sich folgende Warnung:
 
     Package biblatex Warning: Please (re)run Biber on the file:
-    (biblatex)        Minimalbeispiel 
-    (biblatex)        and rerun LaTeX afterwards. 
+    (biblatex)       Minimalbeispiel 
+    (biblatex)       and rerun LaTeX afterwards. 
 
 
 Biber ist der Name des Hilfsprogramms, welches von `biblatex` für
@@ -233,9 +244,10 @@ erneut aufrufen müssen. Ergebnis unserer *Mühen* ist eine
 numerische Zitation der Einträge (Zahl in eckigen Klammern) und ein sauberes
 Literaturverzeichnis.
 
-![numerische Zitation][numeric]
+![Nachdem pdfLaTeX die von `biber` erzeugte `bbl` Datei
+verarbeitet hat, haben wir numerische Zitatangaben.][numeric]
 
-Bereits im Vorspann wurde erwahnt, dass biblatex verschiedene
+Bereits im Vorspann wurde erwähnt, dass `biblatex` verschiedene
 Stile definiert. So kann man beim Laden des Paketes mit   
 `\usepackage[style=authoryear]{biblatex}`  
 die in den Geisteswissenschaften sehr übliche Zitation des Stils
@@ -421,6 +433,8 @@ das Programm `makebst` genutzt werden. Allerdings sollte ein
 Wechsel zu `biblatex` aufgrund oben bereits erwähnter Vorteile
 in Erwägung gezogen werden.
 
+References
+===========
 
 ------------------------
 Dieser Beitrag enthält Links welche grundlegender Bestandteil des Beitrages sind. Wünsche, Kritik oder
@@ -432,16 +446,18 @@ Viel Erfolg
 Johannes im Namen der GoLaTeX-Helfer
 
 
-2015-03-15
+2015-04-05
 
 
 
 [l2kurz]: http://ctan.org/pkg/lshort-german
 [novice]: http://www.dickimaw-books.com/latex/novices/index.html
 [stefan]: https://www.packtpub.com/hardware-and-creative/latex-beginners-guide
-[herbert]: http://www.lehmanns.de/shop/mathematik-informatik/18416992-9783865414151-bibliografien-mit-latex
+[Tmpherbert]: http://www.lehmanns.de/shop/mathematik-informatik/18416992-9783865414151-bibliografien-mit-latex
 [jabref]: http://jabref.sourceforge.net/
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
-[numeric]: http://golatex.de/files/numeric_606.png
-[citekey]: http://golatex.de/files/hinweise1_157.png
+[numeric]: ./figures/numeric.png
+[svenumeric]: http://golatex.de/files/numeric_606.png
+[citekey]: ./figures/citekey.png
+[svecitekey]: http://golatex.de/files/hinweise1_157.png
 [schenk]: https://portal.dnb.de/opac.htm?method=simpleSearch&cqlMode=true&query=idn%3D973206799 "Schenk, Hans-Otto, Die Examensarbeit : ein Leitfaden für Wirtschafts- und Sozialwissenschaftler, ISBN 3-8252-2657-3"

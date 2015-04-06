@@ -1,7 +1,12 @@
 # HinweiseLitverzeichnisse
 
+[Wichtige Hinweise zur Erstellung von
+Literaturverzeichissen](http://golatex.de/wichtige-hinweise-erstellung-von-literaturverzeichnissen-t11964.html)
 
-Wichtige Hinweise zur Erstellung von Literaturverzeichissen
+Nicht alles ist für alle verständlich, deswegen hier der
+Sandkasten, aus dem sich die wichtigen Hinweise ergeben. 
 
-Jeder muss sein Zeugs überarbeiten, hier nun die Hinweise
+Fragen, Anregungen oder Wünsche? Issue starten oder im
+Support-thread nachhaken.
 
+Bis mir was besseres einfällt, bleibt das hier CC3
