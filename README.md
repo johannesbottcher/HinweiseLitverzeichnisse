@@ -1,7 +1,4 @@
 # HinweiseLitverzeichnisse
 
-
-Wichtige Hinweise zur Erstellung von Literaturverzeichissen
-
-Jeder muss sein Zeugs überarbeiten, hier nun die Hinweise
-
+In der Datei Hinweise.md stehen viele nützliche Informationen,
+reinschauen lohnt sich.
