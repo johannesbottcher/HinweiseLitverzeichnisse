@@ -11,7 +11,7 @@ muss laut [Schenk (Seite 92)][schenk] folgenden
 - Ehrlichkeit
 
 LaTeX als Textsatzprogramm kann hier unterstützen, jedoch trägt
-der Autor selbst für die Einhaltung der oben genannten Punkte
+jeder Autor selbst für die Einhaltung der oben genannten Punkte
 Verantwortung.
 
 **Literaturverzeichnisse mit LaTeX**
@@ -24,8 +24,20 @@ diesen Tagen das moderne Paket [biblatex](www.ctan.org/pkg/biblatex)
 in Verbindung mit dem Bibliographieprozessor
 [biber](www.ctan.org/pkg/biber) sehr empfehlenswert. Pakete wie natbib
 oder cite in Verbindung mit BibTeX oder sogar das manuelle Erstellen
-des Verzeichnisses, gelten als veraltet.*
+des Verzeichnisses, gelten als veraltet, werden allerdings noch
+von vielen Journalen gefordert.*
 
+Inhalt
+--
+
+[Der schnelle Umstieg für erfahrene
+Benutzer](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#der-schnelle-umstieg-f%C3%BCr-erfahrene-benutzer)  
+[Einstieg in die Literaturverwaltung mit biblatex](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#einstieg-in-die-literaturverwaltung-mit-biblatex)   
+[Troubleshooting](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#troubleshooting)  
+[Anpassung eines Stils an vorhandene
+Vorgaben](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#anpassen-des-stils-an-vorhandene-vorgaben)    
+[Anpassung von
+BibTeX-Stilen](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#anpassen-von-bibtex-stilen)
 
 
 Der schnelle Umstieg für erfahrene Benutzer
@@ -212,8 +224,7 @@ zu biblatex entwickelt, deshalb sollten beide auf dem neuesten
 Stand sein.  Dies geht ganz leicht mit dem Paketmanager der
 jeweiligen Distribution (tlmgr oder MikTeX Package manager).
 Biber ist als Hilfsprogramm von LaTeX unabhängig und muss extra
-aufgerufen werden; unter MikTeX 64-Bit sogar extra installiert
-werden.  Beispiele zum Aufruf  für  verschiede Editoren finden sich unter »[Wie rufe ich
+aufgerufen werden; es ist in TeX Live sowie MikTeX<sup>1</sup> enthalten. Beispiele zum Aufruf  für  verschiede Editoren finden sich unter »[Wie rufe ich
 biber in meinem Editor auf?](www.texwelt.de/wissen/fragen/1909)«.
 Möchte man stattdessen in einer
 [Eingabeaufforderung/Terminal](http://texwelt.de/wissen/fragen/3461/wie-kompiliere-ich-in-der-eingabeaufforderung-im-terminal)
@@ -403,8 +414,8 @@ möglichst genaues Minimalbeispiel die Chancen auf eine präzise
 Antwort, ist aber leider kein Garant. Dabei ist es besonders
 vorteilhaft, die Details in Einzelfragen mit jeweils kleinen
 Beispielen unterzubringen. Die von `biblatex` bereitgestellte
-Beispielbibliographie, sowie das Paket `citeall` liefern hier
-gute Dienste. 
+Beispielbibliographie (`biblatex-examples.bib`), sowie das Paket
+`citeall` liefern hier gute Dienste. 
 
 ## Anpassen von BibTeX-Stilen
 
@@ -422,6 +433,11 @@ Wechsel zu `biblatex` aufgrund oben bereits erwähnter Vorteile
 in Erwägung gezogen werden.
 
 
+
+<sup>1</sup> In früheren Versionen von MikTeX 64-Bit war biber nicht enthalten und musste nachträglich installiert werden.
+Ist dies der Fall empfiehlt sich ein Update.
+  
+
 ------------------------
 Dieser Beitrag enthält Links welche grundlegender Bestandteil des Beitrages sind. Wünsche, Kritik oder
 Verbesserungsvorschläge werden im [Support-Thread](http://www.golatex.de/viewtopic,p,63146.html#63146) gern gesehen. 
@@ -432,7 +448,7 @@ Viel Erfolg
 Johannes im Namen der GoLaTeX-Helfer
 
 
-2015-03-15
+2015-06-21
 
 
 
