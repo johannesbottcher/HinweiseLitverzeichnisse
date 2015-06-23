@@ -1,31 +1,16 @@
-Wissenschaftliches Arbeiten beinhaltet auch das belegen
-verwendeter Literatur in Form von Literaturangaben sowie
-ordentlichen Literaturverzeichnissen. Das Literaturverzeichnis
-muss laut [Schenk (Seite 92)][schenk] folgenden
-*Anforderungen* entsprechen:
-
-- Richtigkeit
-- Vollständigkeit
-- Einheitlichkeit
-- Übersichtlichkeit
-- Ehrlichkeit
-
-LaTeX als Textsatzprogramm kann hier unterstützen, jedoch trägt
-jeder Autor selbst für die Einhaltung der oben genannten Punkte
-Verantwortung.
-
 **Literaturverzeichnisse mit LaTeX**
 =========================
 
 
 
 *Für die Erstellung von Literaturverzeichnissen mit LaTeX ist in
-diesen Tagen das moderne Paket [biblatex](www.ctan.org/pkg/biblatex)
-in Verbindung mit dem Bibliographieprozessor
-[biber](www.ctan.org/pkg/biber) sehr empfehlenswert. Pakete wie natbib
-oder cite in Verbindung mit BibTeX oder sogar das manuelle Erstellen
-des Verzeichnisses, gelten als veraltet, werden allerdings noch
-von vielen Journalen gefordert.*
+diesen Tagen das moderne Paket
+[biblatex](www.ctan.org/pkg/biblatex) in Verbindung mit dem
+Bibliographieprozessor [biber](www.ctan.org/pkg/biber) sehr
+empfehlenswert. Pakete wie natbib oder cite in Verbindung mit
+BibTeX oder sogar das manuelle Erstellen des Verzeichnisses,
+gelten als veraltet, werden allerdings noch von vielen Journalen
+gefordert.*
 
 Inhalt
 --
@@ -59,21 +44,22 @@ sich](http://texwelt.de/wissen/fragen/2768/biblatex-und-biber-mit-lyx/2847).
 
 `biblatex` selbst bietet viele Möglichkeiten und ersetzt eine
 Reihe von Paketen welche im Zusammenhang mit dem klassischen
-BibTeX gebraucht wurden.  Da `biblatex` mit LaTeX-Dateien zur
+BibTeX gebraucht wurden. Da `biblatex` mit LaTeX-Dateien zur
 Stilbeschreibung arbeitet, ist der Befehl `\bibliographystyle`
 nicht mehr nötig. Stattdessen wird der Bibliographiestil als
-Paketoption übergeben (`style=authoryear`).  Bereits existierende
+Paketoption übergeben (`style=authoryear`). Bereits existierende
 BibTeX-Datenbanken sind kompatibel, können aber um weitere
 Eintragstypen und -felder erweitert werden. Ein höheres Maß an
 Flexibilität ist so möglich. Der Name der Datenbank wird mit dem
-Befehl `\addbibresource` übergeben. Da verschiedene Formate
-gültig sind, ist die Angabe der Dateiendung nötig. 
+Befehl `\addbibresource` in der Prämbel übergeben. Da verschiedene
+Datenbankformate gültig sind, ist die Angabe der Dateiendung
+nötig. 
 
 Wie gewohnt wird mit dem Befehl `\cite{bib-key}` zitiert,
-`biblatex` bietet aber auch Alternativen. Mit `autocite` kann
-global das Erscheinungsbild der Zitationen im Text geändert
-werden. Auch Befehle wie `citetitle`, `citeyear` und ähnliche
-sind sehr nützlich. 
+`biblatex` bietet aber auch Alternativen. Nutzt man konsequent
+`autocite`, kann global das Erscheinungsbild der Zitationen im
+Text geändert werden. Auch Befehle wie `citetitle`, `citeyear`
+und andere sind sehr nützlich. 
 
 Im Dokument wird das Literaturverzeichnis mit `\printbibliography`
 ausgegeben. Der Befehl kennt optionale Argumente, beispielsweise um
@@ -83,6 +69,11 @@ zu beschränken.
 Dabei ist die allgemeine Arbeitsweise mit dem älteren System
 kompatibel. Das bedeutet der Rhythmus `latex`, `biber`/`bibtex`,
 `latex`, `latex` bleibt erhalten. 
+
+Bei Verwendung einer Verwaltungssoftware ist es sinnvoll diese
+in den biblatex-Modus zu versetzen, sofern vorhanden. Für Jabref
+und Citavi wird dies in [Vorbereiten des Referenzmanagers für
+biblatex](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/refManager.md) gezeigt. 
 
 -------------------------------------------------------------
 
@@ -460,4 +451,3 @@ Johannes im Namen der GoLaTeX-Helfer
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
 [numeric]: http://golatex.de/files/numeric_606.png
 [citekey]: http://golatex.de/files/hinweise1_157.png
-[schenk]: https://portal.dnb.de/opac.htm?method=simpleSearch&cqlMode=true&query=idn%3D973206799 "Schenk, Hans-Otto, Die Examensarbeit : ein Leitfaden für Wirtschafts- und Sozialwissenschaftler, ISBN 3-8252-2657-3"
