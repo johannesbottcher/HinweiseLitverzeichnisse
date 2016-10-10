@@ -1,43 +1,25 @@
-Wissenschaftliches Arbeiten beinhaltet auch das belegen
-verwendeter Literatur in Form von Literaturangaben sowie
-ordentlichen Literaturverzeichnissen. Das Literaturverzeichnis
-muss laut [Schenk (Seite 92)][schenk] folgenden
-*Anforderungen* entsprechen:
-
-- Richtigkeit
-- Vollständigkeit
-- Einheitlichkeit
-- Übersichtlichkeit
-- Ehrlichkeit
-
-LaTeX als Textsatzprogramm kann hier unterstützen, jedoch trägt
-jeder Autor selbst für die Einhaltung der oben genannten Punkte
-Verantwortung.
-
 **Literaturverzeichnisse mit LaTeX**
 =========================
 
 
 
 *Für die Erstellung von Literaturverzeichnissen mit LaTeX ist in
-diesen Tagen das moderne Paket [biblatex](www.ctan.org/pkg/biblatex)
-in Verbindung mit dem Bibliographieprozessor
-[biber](www.ctan.org/pkg/biber) sehr empfehlenswert. Pakete wie natbib
-oder cite in Verbindung mit BibTeX oder sogar das manuelle Erstellen
-des Verzeichnisses, gelten als veraltet, werden allerdings noch
-von vielen Journalen gefordert.*
+diesen Tagen das moderne Paket
+[biblatex](www.ctan.org/pkg/biblatex) in Verbindung mit dem
+Bibliographieprozessor [biber](www.ctan.org/pkg/biber) sehr
+empfehlenswert. Pakete wie natbib oder cite in Verbindung mit
+BibTeX oder sogar das manuelle Erstellen des Verzeichnisses,
+gelten als veraltet, werden allerdings noch von vielen Journalen
+gefordert.*
 
 Inhalt
 --
 
-[Der schnelle Umstieg für erfahrene
-Benutzer](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#der-schnelle-umstieg-f%C3%BCr-erfahrene-benutzer)  
+[Der schnelle Umstieg für erfahrene Benutzer](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#der-schnelle-umstieg-f%C3%BCr-erfahrene-benutzer)  
 [Einstieg in die Literaturverwaltung mit biblatex](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#einstieg-in-die-literaturverwaltung-mit-biblatex)   
 [Troubleshooting](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#troubleshooting)  
-[Anpassung eines Stils an vorhandene
-Vorgaben](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#anpassen-des-stils-an-vorhandene-vorgaben)    
-[Anpassung von
-BibTeX-Stilen](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#anpassen-von-bibtex-stilen)
+[Anpassung eines Stils an vorhandene Vorgaben](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#anpassen-des-stils-an-vorhandene-vorgaben)    
+[Anpassung von BibTeX-Stilen](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/Hinweise.md#anpassen-von-bibtex-stilen)
 
 
 Der schnelle Umstieg für erfahrene Benutzer
@@ -45,35 +27,32 @@ Der schnelle Umstieg für erfahrene Benutzer
 
 Biblatex und biber sind ein großartiges Team. Biblatex bietet eine
 Auswahl vordefinierter Stile für Zitationen und Bibliographien, welche
-auch leicht [geändert werden
-können](http://texwelt.de/blog/modifizieren-eines-biblatex-stils/).
+auch leicht [geändert werden können](http://texwelt.de/blog/modifizieren-eines-biblatex-stils/).
 Die [biblatex-Support-Seite](http://www.ctan.org/topic/biblatex) auf
 [CTAN](http://www.ctan.org) liefert zusätzliche Stile. Der
-moderne Bibliographieprozessor biber [bietet einige Vorteile gegenüber dem
-konventionellen
-BibTeX](http://texwelt.de/wissen/fragen/5398/was-sind-die-vorteile-von-biber-gegenuber-bibtex).
+moderne Bibliographieprozessor biber [bietet einige Vorteile gegenüber dem konventionellen BibTeX](http://texwelt.de/wissen/fragen/5398/was-sind-die-vorteile-von-biber-gegenuber-bibtex).
 Für erfahrene LaTeX-Nutzer, welche den Umstieg auf LyX gewagt haben,
-gibt es auch gute Nachrichten, denn [LyX und biblatex vertragen
-sich](http://texwelt.de/wissen/fragen/2768/biblatex-und-biber-mit-lyx/2847).
+gibt es auch gute Nachrichten, denn [LyX und biblatex vertragen sich](http://texwelt.de/wissen/fragen/2768/biblatex-und-biber-mit-lyx/2847).
 
 
 `biblatex` selbst bietet viele Möglichkeiten und ersetzt eine
 Reihe von Paketen welche im Zusammenhang mit dem klassischen
-BibTeX gebraucht wurden.  Da `biblatex` mit LaTeX-Dateien zur
+BibTeX gebraucht wurden. Da `biblatex` mit LaTeX-Dateien zur
 Stilbeschreibung arbeitet, ist der Befehl `\bibliographystyle`
 nicht mehr nötig. Stattdessen wird der Bibliographiestil als
-Paketoption übergeben (`style=authoryear`).  Bereits existierende
+Paketoption übergeben (`style=authoryear`). Bereits existierende
 BibTeX-Datenbanken sind kompatibel, können aber um weitere
 Eintragstypen und -felder erweitert werden. Ein höheres Maß an
 Flexibilität ist so möglich. Der Name der Datenbank wird mit dem
-Befehl `\addbibresource` übergeben. Da verschiedene Formate
-gültig sind, ist die Angabe der Dateiendung nötig. 
+Befehl `\addbibresource` in der Prämbel übergeben. Da verschiedene
+Datenbankformate gültig sind, ist die Angabe der Dateiendung
+nötig. 
 
 Wie gewohnt wird mit dem Befehl `\cite{bib-key}` zitiert,
-`biblatex` bietet aber auch Alternativen. Mit `autocite` kann
-global das Erscheinungsbild der Zitationen im Text geändert
-werden. Auch Befehle wie `citetitle`, `citeyear` und ähnliche
-sind sehr nützlich. 
+`biblatex` bietet aber auch Alternativen. Nutzt man konsequent
+`autocite`, kann global das Erscheinungsbild der Zitationen im
+Text geändert werden. Auch Befehle wie `citetitle`, `citeyear`
+und andere sind sehr nützlich. 
 
 Im Dokument wird das Literaturverzeichnis mit `\printbibliography`
 ausgegeben. Der Befehl kennt optionale Argumente, beispielsweise um
@@ -83,6 +62,10 @@ zu beschränken.
 Dabei ist die allgemeine Arbeitsweise mit dem älteren System
 kompatibel. Das bedeutet der Rhythmus `latex`, `biber`/`bibtex`,
 `latex`, `latex` bleibt erhalten. 
+
+Bei Verwendung einer Verwaltungssoftware ist es sinnvoll diese
+in den biblatex-Modus zu versetzen, sofern vorhanden. Für Jabref
+und Citavi wird dies in [Vorbereiten des Referenzmanagers für biblatex](https://github.com/johannesbottcher/HinweiseLitverzeichnisse/blob/master/refManager.md) gezeigt. 
 
 -------------------------------------------------------------
 
@@ -105,8 +88,7 @@ erstellen, schließlich ist ein Literaturverzeichnis nur eine
 Liste, aber wer will das schon. Genaueres findet sich bei
 Interesse in der
 [LaTeX2ε-Kurzbeschreibung][l2kurz], in
-	Kapitel 5.6 von Nicola Talbots [LaTeX for Complete
-Novices][novice]
+	Kapitel 5.6 von Nicola Talbots [LaTeX for Complete Novices][novice]
 oder auch in Kapitel 7 des
 [LaTeX Beginner's Guide][stefan]
 von Stefan Kottwitz. Bei sehr kurzen Verzeichnissen kann der
@@ -179,8 +161,7 @@ elektronischer Medien stellen häufig einen BibTeX-Eintrag zur
 Verfügung (ob dieser allerdings korrekt ist, ist eine andere Frage).
 
 Grundlegende Informationen zu BibTeX-Datenbanken und möglichen
-Stolperfallen bei der Eingabe bieten [Bibliografien mit
-LaTeX][herbert] von Herbert Voß und [Using LaTeX to Write a PhD Thesis][thesis]
+Stolperfallen bei der Eingabe bieten [Bibliografien mit LaTeX][herbert] von Herbert Voß und [Using LaTeX to Write a PhD Thesis][thesis]
 von Nicola Talbot.
 
 
@@ -209,8 +190,7 @@ Literaturverzeichnis wird durch `\printbibliography` ausgegeben.
 
 Nach dem ersten Lauf von LaTeX erhalten wir nicht ganz das
 gewünschte Ergebnis, unsere Bibkeys stehen hässlich und fett im
-Text. In der Log-datei ([Was sind
-Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese))
+Text. In der Log-datei ([Was sind Hilfsdateien?](http://texwelt.de/wissen/fragen/2530/was-sind-hilfsdateien-und-wo-finde-ich-diese))
 findet sich folgende Warnung:
 
     Package biblatex Warning: Please (re)run Biber on the file:
@@ -224,9 +204,7 @@ zu biblatex entwickelt, deshalb sollten beide auf dem neuesten
 Stand sein.  Dies geht ganz leicht mit dem Paketmanager der
 jeweiligen Distribution (tlmgr oder MikTeX Package manager).
 Biber ist als Hilfsprogramm von LaTeX unabhängig und muss extra
-aufgerufen werden; es ist in TeX Live sowie MikTeX<sup>1</sup> enthalten. Beispiele zum Aufruf  für  verschiede Editoren finden sich unter »[Wie rufe ich
-biber in meinem Editor auf?](www.texwelt.de/wissen/fragen/1909)«.
-Möchte man stattdessen in einer
+aufgerufen werden; es ist in TeX Live sowie MikTeX<sup>1</sup> enthalten. Beispiele zum Aufruf  für  verschiede Editoren finden sich unter »[Wie rufe ich biber in meinem Editor auf?](www.texwelt.de/wissen/fragen/1909)«.  Möchte man stattdessen in einer
 [Eingabeaufforderung/Terminal](http://texwelt.de/wissen/fragen/3461/wie-kompiliere-ich-in-der-eingabeaufforderung-im-terminal)
 arbeiten, so lautet der Befehl `biber
 hauptdokumentNameOhneDateiendung`. 
@@ -234,8 +212,7 @@ hauptdokumentNameOhneDateiendung`.
 Biber sortiert nun und
 schreibt anschließend einige Dateien. Das sind zum einen eine
 Protokolldatei (`blg`), welche für eine eventuelle Fehlersuche
-wichtig ist (»[Wie überprüfe ich, ob biber aufgerufen
-wurde?](www.texwelt.de/wissen/fragen/2308)«) und die Datei,
+wichtig ist (»[Wie überprüfe ich, ob biber aufgerufen wurde?](www.texwelt.de/wissen/fragen/2308)«) und die Datei,
 welche beim erneuten Aufruf von `latex` verarbeitet wird um die
 tatsächliche sortierte  Bibliographie und alle Referenzen zu setzen. 
 
@@ -286,10 +263,10 @@ wie:
 file version 2.5, expected version 2.3 ` Das bedeutet schlicht,
 dass die Versionen von biber und biblatex nicht zusammen passen.
 Ein Update mit dem Paketmanager der installierten
-TeX-Distribution hilft hier weiter.
+TeX-Distribution hilft hier weiter (nicht vergessen, bei MikTeX
+als Admin *und* User).
 
-Auch [Biber »data source not
-found«](http://texwelt.de/wissen/fragen/3272/biber-data-source-not-found)
+Auch [Biber »data source not found«](http://texwelt.de/wissen/fragen/3272/biber-data-source-not-found)
 kommt ab und zu vor. 
 
 Weitere Beispiele für häufige Fehler beim erstmaligen Laufen von
@@ -299,12 +276,10 @@ Biber erklärt Markus Kohm auf
 ----
 
 Möchte man bei allgemeinen Problemen in einem Forum nach Hilfe
-fragen, so sollte man grundsätzlich ein [vollständiges
-Minimalbeispiel](www.texwelt.de/wissen/fragen/569) erstellen.
+fragen, so sollte man grundsätzlich ein [vollständiges Minimalbeispiel](www.texwelt.de/wissen/fragen/569) erstellen.
 Auch LyX-Nutzer können ihr Dokument minimalisieren
 ([LyX-Minimalbeispiel](http://wiki.lyx.org/FAQ/MinimalExample)),
-sollten ihr Dokument dann aber noch [zu LaTeX
-exportieren](http://texwelt.de/wissen/fragen/12017/wie-exportiere-ich-lyx-dokumente-zu-latex).
+sollten ihr Dokument dann aber noch [zu LaTeX exportieren](http://texwelt.de/wissen/fragen/12017/wie-exportiere-ich-lyx-dokumente-zu-latex).
 Nur mit Hilfe eines Minimalbeispiels können Helfer Probleme
 nachvollziehen. Wichtig ist weiterhin die Bereitstellung der
 erzeugten `log`- und `blg`-Dateien des Minimalbeispiels, welche
@@ -317,7 +292,10 @@ Beispiele bleiben besonders klein und überschaubar.
 
 Weiterer Vorteil, bei goLaTeX.de kann man das Beispiel durch
 »Öffne in Online-Editor« sofort testen. Sehr praktisch, wenn man
-Helfern so Arbeit ersparen kann. 
+Helfern so Arbeit ersparen kann. Folgendes Beispiel sollte
+genutzt werden, um zu testen ob das System korrekt konfiguriert
+ist und die Programme korrekt aufgerufen wurden. Funktioniert es
+nicht, dann sollte man die `blg`- und `log`-Datei inspizieren.
 
     \documentclass{article}
     \usepackage[style=authoryear,backend=biber]{biblatex}
@@ -407,8 +385,7 @@ einfach mal nett nachfragt, ob das reicht.
 
 Ist die strikte Umsetzung gefordert kann man das Erscheinungsbild
 über LaTeX-Makros ändern. Erste Schritte und Tipps werden einem
-unter [Modifizieren eines
-biblatex-Stils](http://texwelt.de/blog/modifizieren-eines-biblatex-stils/)
+unter [Modifizieren eines biblatex-Stils](http://texwelt.de/blog/modifizieren-eines-biblatex-stils/)
 auf den Weg gegeben. Bei Fragen zur Modifikation erhöht ein
 möglichst genaues Minimalbeispiel die Chancen auf eine präzise
 Antwort, ist aber leider kein Garant. Dabei ist es besonders
@@ -419,7 +396,7 @@ Beispielbibliographie (`biblatex-examples.bib`), sowie das Paket
 
 ## Anpassen von BibTeX-Stilen
 
-Das ältere BibTeX (die Software) arbeitet mit `bst`-Dateien. In
+GDas ältere BibTeX (die Software) arbeitet mit `bst`-Dateien. In
 diesen wird das Erscheinungsbild der Bibliographie über
 Funktionen einer eigens entworfenen Sprache definiert.  Viele
 empfinden diese Stildateien und deren Funktionen als kryptisch.
@@ -460,4 +437,3 @@ Johannes im Namen der GoLaTeX-Helfer
 [thesis]: http://www.dickimaw-books.com/latex/thesis/index.html
 [numeric]: http://golatex.de/files/numeric_606.png
 [citekey]: http://golatex.de/files/hinweise1_157.png
-[schenk]: https://portal.dnb.de/opac.htm?method=simpleSearch&cqlMode=true&query=idn%3D973206799 "Schenk, Hans-Otto, Die Examensarbeit : ein Leitfaden für Wirtschafts- und Sozialwissenschaftler, ISBN 3-8252-2657-3"
